@@ -42,7 +42,9 @@ runs:
     - name: Run git-cliff
       id: run-git-cliff
       shell: bash
-      run: chmod +x ${GITHUB_ACTION_PATH}/run.sh --config=${{ inputs.config }} ${{ inputs.args }}
+      run: 
+        - chmod +x ${GITHUB_ACTION_PATH}/run.sh 
+        - ${GITHUB_ACTION_PATH}/run.sh --config=${{ inputs.config }} ${{ inputs.args }}
       env:
         GITHUB_TOKEN: ${{ env.GITHUB_TOKEN || inputs.github_token }}
 
